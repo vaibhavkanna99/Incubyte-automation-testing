@@ -14,7 +14,6 @@ test.beforeEach("set data for test", async ({ page }) => {
 test.describe("Login Flow Negative Scenarios", () => {
   test("AUTH-LOGIN-002", async ({ page }) => {
     email = "test@email";
-    console.log("after setting >> ", email, password);
     await loginPage.validateLogin(email, password);
     await expect(
       page.locator('div[role="alert"] > div[data-ui-id="message-error"]')
@@ -23,9 +22,9 @@ test.describe("Login Flow Negative Scenarios", () => {
     );
   });
 
-  test.only("Login with invalid password", async ({ page }) => {
-    email = "AUTH-LOGIN-003";
-    console.log("after setting >> ", email, password);
+  test("AUTH-LOGIN-003", async ({ page }) => {
+    email = "johndoe@gmail.com";
+    password = "wrongpassword";
     await loginPage.validateLogin(email, password);
     await expect(
       page.locator('div[role="alert"] > div[data-ui-id="message-error"]')
@@ -36,7 +35,6 @@ test.describe("Login Flow Negative Scenarios", () => {
 
   test("AUTH-LOGIN-004", async ({ page }) => {
     email = "test2424@email.com";
-    console.log("after setting >> ", email, password);
     await loginPage.validateLogin(email, password);
     await expect(
       page.locator('div[role="alert"] > div[data-ui-id="message-error"]')

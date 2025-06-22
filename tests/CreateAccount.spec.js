@@ -36,7 +36,7 @@ test.describe("Account Creation Negative Scenario", async () => {
     );
   });
 
-  test.only("AUTH-SIGNUP-004", async ({ page }) => {
+  test("AUTH-SIGNUP-004", async ({ page }) => {
     email = "";
     await createAccountPage.createAccount(firstName, lastName, email, password);
     await expect(
